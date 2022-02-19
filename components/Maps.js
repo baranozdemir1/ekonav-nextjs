@@ -65,7 +65,7 @@ export default function Maps( { coordinates } ) {
           query={{ apikey: process.env.NEXT_PUBLIC_YANDEX_MAPS_API, lang: process.env.NEXT_PUBLIC_YANDEX_MAPS_LANG }}
         >
           <Map
-            className="h-screen w-screen calculated"
+            className="w-screen calculated"
             modules={["multiRouter.MultiRoute"]}
             state={mapState}
             width="100%"

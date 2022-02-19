@@ -64,3 +64,7 @@ input {
 .calculated {
     height: calc(100vh - theme('spacing.28'));
 }
+
+.calc2 {
+    width: calc(100% - theme('spacing.20'));
+}

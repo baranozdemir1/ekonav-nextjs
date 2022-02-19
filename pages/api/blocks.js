@@ -1,4 +1,4 @@
-import { getBlocks } from "../../../services";
+import { getBlocks } from "../../services";
 
 export default async function handler(req, res) {
   const blocks = await getBlocks();

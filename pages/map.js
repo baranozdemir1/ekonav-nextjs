@@ -8,7 +8,6 @@ export default function Maps( { blocks } ) {
                 <title>Maps</title>
             </Head>
             <Header />
-            {console.log(blocks)}
         </>
     )
 }

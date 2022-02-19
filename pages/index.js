@@ -1,6 +1,5 @@
 import Head from 'next/head';
-
-import { Header, Content } from '../components';
+import { Header, Content, Demo } from '../components';
 
 import { getBlocks } from '../services';
 
