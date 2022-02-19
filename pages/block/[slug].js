@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 
-import { Header, Maps, Demo } from '../../components';
+import { Header, Maps } from '../../components';
 
 import { getBlocks, getBlockDetails } from '../../services';
 

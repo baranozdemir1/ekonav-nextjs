@@ -7,6 +7,7 @@ import { BsGrid, BsListUl, BsDoorClosed } from 'react-icons/bs';
 import { AiOutlineEye } from 'react-icons/ai';
 
 import Head from 'next/head';
+import Image from 'next/image';
 
 export default function Content({ blocks }) {
 
@@ -85,7 +86,7 @@ export default function Content({ blocks }) {
                 </div>
 
                 <form className="form-check flex items-center justify-center">
-                    <label for="gridToList" className="flex items-center cursor-pointer relative">
+                    <label htmlFor="gridToList" className="flex items-center cursor-pointer relative">
                         <input type="checkbox" id="gridToList" className="sr-only" onChange={(e) => { setIsListOn(e.target.checked) }} />
                         <div className="gridToList bg-[#F4F2F8] border border-[#DCDBE0] h-10 w-20 rounded-lg flex items-center justify-around">
                             <BsGrid size={22} className="gridIcon" />
@@ -104,9 +105,9 @@ export default function Content({ blocks }) {
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
 
                     {blocks.map( ({ id, blockName, slug, blockImage, totalClassNum }) => 
-                        <Link href={`/block/${slug}`} key={id}>
+                        <Link href={`/block/${slug}`} key={id} passHref>
                             <div className="cursor-pointer hover:shadow-2xl item flex justify-between flex-row bg-white rounded-xl shadow-lg">
-                                <img className="overflow-hidden flex-1 w-56 max-w-sm object-cover rounded-l-xl" src={blockImage.url} alt="" />
+                                <Image src={blockImage.url} alt={blockName} width={200} height={200} className="overflow-hidden flex-1 w-56 max-w-sm object-cover rounded-l-xl" />
                                 <div className="details flex flex-1 flex-col justify-center items-center p-3 md:p-5 lg:p-9 gap-6">
                                     <div className="topInfo flex md:text-2xl text-lg">
                                         <h1 className="title font-bold">{blockName}</h1>
@@ -131,9 +132,9 @@ export default function Content({ blocks }) {
                     <div className="itemGrid">
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8">
                             {blocks.map( ({ id, blockName, slug, blockImage, totalClassNum }) => 
-                                <Link href={`/block/${slug}`} key={id}>
+                                <Link href={`/block/${slug}`} key={id} passHref>
                                     <div className="cursor-pointer hover:shadow-2xl item flex justify-center flex-col bg-white rounded-xl shadow-lg">
-                                        <img className="overflow-hidden w-full object-cover rounded-t-xl" src={blockImage.url} alt="" />
+                                        <Image src={blockImage.url} alt={blockName} width={200} height={200} className="overflow-hidden w-full object-cover rounded-t-xl" />
                                         <div className="details flex flex-col justify-center items-center p-6 md:p-5 lg:p-9 gap-6">
                                             <div className="topInfo flex flex-1 text-xl md:text-xl lg:text-2xl">
                                                 <div className="title font-bold">{blockName}</div>

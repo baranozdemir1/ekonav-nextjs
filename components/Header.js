@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { BiSearch } from 'react-icons/bi';
 import { IoMdNotificationsOutline } from 'react-icons/io';
@@ -9,9 +10,9 @@ export default function Header() {
     return (
         <div className="bg-white h-28 flex items-center justify-center shadow-sm">
             <div className="container mx-auto px-5 flex items-center justify-between flex-wrap gap-4">
-                <Link href="/">
+                <Link href="/" passHref>
                     <div className='flex items-center justify-center md:w-auto w-full cursor-pointer'>
-                        <img src='/logo.svg' alt='EkoNav Logo' className="mr-3" />
+                        <Image src="/images/logo.png" alt="EkoNav Logo" width={150} height={50} className="mr-3" />
                         <p className="text-3xl font-glory font-normal">EkoNav</p>
                     </div>
                 </Link>

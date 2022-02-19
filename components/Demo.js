@@ -12,6 +12,7 @@ import { Pagination, EffectCoverflow } from "swiper";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
+import Image from 'next/image';
 
 export default function Demo( ) {
 
@@ -47,7 +48,6 @@ export default function Demo( ) {
                         centeredSlides={true}
                         slidesPerView={"auto"}
                         slideToClickedSlide={true}
-                        slidesPerView={4}
                         coverflowEffect={{
                             rotate: 0,
                             stretch: -30,
@@ -66,9 +66,9 @@ export default function Demo( ) {
                         <div className="itemGrid">
                             {blocks.blocks.map( ({ id, blockName, slug, blockImage, totalClassNum }) => 
                                 <SwiperSlide key={id}>
-                                    <Link href={`/block/${slug}`}>
+                                    <Link href={`/block/${slug}`} passHref>
                                         <div className="cursor-pointer hover:shadow-2xl item flex justify-center flex-col bg-white rounded-xl shadow-lg">
-                                            <img className="overflow-hidden w-full object-cover rounded-t-xl" src={blockImage.url} alt="" />
+                                            <Image src={blockImage.url} alt={blockName} width={300} height={300} className="overflow-hidden w-full object-cover rounded-t-xl" />
                                             <div className="details flex flex-col justify-center items-center p-6 md:p-5 lg:p-9 gap-6">
                                                 <div className="topInfo flex flex-1 text-xl md:text-xl lg:text-2xl">
                                                     <div className="title font-bold">{blockName}</div>
