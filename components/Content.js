@@ -107,7 +107,7 @@ export default function Content({ blocks }) {
                     {blocks.map( ({ id, blockName, slug, blockImage, totalClassNum }) => 
                         <Link href={`/block/${slug}`} key={id} passHref>
                             <div className="cursor-pointer hover:shadow-2xl item flex justify-between flex-row bg-white rounded-xl shadow-lg">
-                                <Image src={blockImage.url} alt={blockName} width={200} height={200} className="overflow-hidden flex-1 w-56 max-w-sm object-cover rounded-l-xl" />
+                                <Image unoptimized loader={() => blockImage.url} src={blockImage.url} alt={blockName} width={200} height={200} className="overflow-hidden flex-1 w-56 max-w-sm object-cover rounded-l-xl" />
                                 <div className="details flex flex-1 flex-col justify-center items-center p-3 md:p-5 lg:p-9 gap-6">
                                     <div className="topInfo flex md:text-2xl text-lg">
                                         <h1 className="title font-bold">{blockName}</h1>
@@ -134,7 +134,7 @@ export default function Content({ blocks }) {
                             {blocks.map( ({ id, blockName, slug, blockImage, totalClassNum }) => 
                                 <Link href={`/block/${slug}`} key={id} passHref>
                                     <div className="cursor-pointer hover:shadow-2xl item flex justify-center flex-col bg-white rounded-xl shadow-lg">
-                                        <Image src={blockImage.url} alt={blockName} width={200} height={200} className="overflow-hidden w-full object-cover rounded-t-xl" />
+                                        <Image unoptimized loader={() => blockImage.url} src={blockImage.url} alt={blockName} width={200} height={200} className="overflow-hidden w-full object-cover rounded-t-xl" />
                                         <div className="details flex flex-col justify-center items-center p-6 md:p-5 lg:p-9 gap-6">
                                             <div className="topInfo flex flex-1 text-xl md:text-xl lg:text-2xl">
                                                 <div className="title font-bold">{blockName}</div>

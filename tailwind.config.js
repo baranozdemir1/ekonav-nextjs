@@ -8,8 +8,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'glory': ['Glory', 'sans-serif'],
-        'montserrat': ['Montserrat', 'sans-serif'],
+        'glory': "'Glory', 'sans-serif'",
+        'montserrat': "'Montserrat', 'sans-serif'",
       },
       colors: {
         'ekonavHomeBg': '#E5E5E5',

@@ -28,7 +28,7 @@ input {
 
 .ekoNav-navigation > ul li:hover,
 .active {
-    @apply transition-all after:transition-all text-ekonavLink after:content-[''] after:absolute after:bg-ekonavPurple after:w-full after:h-1 after:top-7 after:left-0 after:bottom-0 after:rounded-t;
+    @apply transition-all after:transition-all text-ekonavLink after:content-none after:absolute after:bg-ekonavPurple after:w-full after:h-1 after:top-7 after:left-0 after:bottom-0 after:rounded-t;
 }
 
 .listIcon {
@@ -67,4 +67,8 @@ input {
 
 .calc2 {
     width: calc(100% - theme('spacing.20'));
+}
+
+.haveNotification {
+    @apply absolute left-3 bottom-[0.625rem] border-2 border-white bg-ekonavPurple w-[0.938rem] h-[0.938rem] rounded-full shadow-notification;
 }

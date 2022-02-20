@@ -5,14 +5,14 @@ import { IoMdNotificationsOutline } from 'react-icons/io';
 
 export default function Header() {
 
-    const haveNotification = false;
+    const haveNotification = true;
     
     return (
         <div className="bg-white h-28 flex items-center justify-center shadow-sm">
             <div className="container mx-auto px-5 flex items-center justify-between flex-wrap gap-4">
                 <Link href="/" passHref>
                     <div className='flex items-center justify-center md:w-auto w-full cursor-pointer'>
-                        <Image src="/images/logo.png" alt="EkoNav Logo" width={150} height={50} className="mr-3" />
+                        <Image src="/logo.svg" alt="EkoNav Logo" width={150} height={50} className="mr-3" unoptimized />
                         <p className="text-3xl font-glory font-normal">EkoNav</p>
                     </div>
                 </Link>
@@ -26,7 +26,7 @@ export default function Header() {
                     <div className="relative">
                         <IoMdNotificationsOutline className='fill-ekonavGray/75' size={23} />
                         { haveNotification &&
-                            <span className="absolute left-3 bottom-[0.625rem] border-2 border-white bg-ekonavPurple w-[0.938rem] h-[0.938rem] rounded-full shadow-notification"></span>
+                            <span className="haveNotification"></span>
                         }
                     </div>
                 </div>
