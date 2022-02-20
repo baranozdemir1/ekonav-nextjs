@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { YMaps, Map, ZoomControl, GeolocationControl, Button, Placemark } from 'react-yandex-maps';
 import { useRef } from 'react';
 
-export default function Maps( { coordinates } ) {
+export default function Maps( { block } ) {
 
   const map = useRef(null);
 
@@ -14,7 +14,7 @@ export default function Maps( { coordinates } ) {
 
   const addRoute = (ymaps) => {
     const startLocation = mapState.center; // Starter location
-    const targetLocation = coordinates; // Target location
+    const targetLocation = block.coordinates; // Target location
 
     const multiRoute = new ymaps.multiRouter.MultiRoute({
       referencePoints: [
@@ -62,7 +62,7 @@ export default function Maps( { coordinates } ) {
       </Head>
       <div className="map">
         <YMaps
-          query={{ apikey: process.env.NEXT_PUBLIC_YANDEX_MAPS_API, lang: process.env.NEXT_PUBLIC_YANDEX_MAPS_LANG }}
+          query={{ apikey: process.env.NEXT_PUBLIC_YANDEX_MAPS_API_KEY, lang: process.env.NEXT_PUBLIC_YANDEX_MAPS_LANG }}
         >
           <Map
             className="w-screen calculated"

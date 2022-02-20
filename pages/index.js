@@ -1,7 +1,7 @@
-import Head from 'next/head';
-import { Header, Content } from '../components';
+import Head from 'next/head'
+import { Header, Content } from '../components'
 
-import { getBlocks } from '../services';
+import { getAllBlock } from '../lib/graphcms'
 
 export default function Home( { blocks } ) {
 
@@ -18,8 +18,9 @@ export default function Home( { blocks } ) {
 }
 
 export async function getStaticProps() {
-  const blocks = (await getBlocks()) || [];
+  const blocks = (await getAllBlock()) || [];
   return {
     props: { blocks },
+    revalidate: 1
   }
 }

@@ -1,19 +1,16 @@
-import { useRouter } from 'next/router';
-import Head from 'next/head';
+import Head from 'next/head'
+import { Header, Maps } from '../../components'
 
-import { Header, Maps } from '../../components';
-
-import { getBlocks, getBlockDetails } from '../../services';
+import { getAllBlockWithSlug, getBlockBySlug } from '../../lib/graphcms'
 
 const Block = ( { block } ) => {
-
   return (
     <div className="bg-ekonavHomeBg/50 h-full">
       <Head>
         <title>Block</title>
       </Head>
       <Header />
-      <Maps coordinates={block.coordinates} />
+      <Maps block={block} />
       {/* <Demo /> */}
     </div>
   )
@@ -22,16 +19,18 @@ const Block = ( { block } ) => {
 export default Block
 
 export async function getStaticProps( { params } ) {
-  const data = await getBlockDetails(params.slug)
+  const data = await getBlockBySlug(params.slug)
   return {
     props: { block: data }
   }
 }
 
 export async function getStaticPaths() {
-  const blocks = await getBlocks()
+  const blocks = await getAllBlockWithSlug()
   return {
-    paths: blocks.map( block => ({ params: { slug: block.slug } }) ),
-    fallback: false
+    paths: blocks.map(({ slug }) => ({
+      params: { slug }
+    })),
+    fallback: true
   }
 }
